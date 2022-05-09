@@ -1,0 +1,91 @@
+Create Database Excercise;
+use Excercise;
+
+Create Table SEMP
+( EMPNO char(4),
+EMPNAME CHAR(20),
+BASIC FLOAT,
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+Create Table SDEPT
+(
+DEPTNO Char(2),
+DEPTNAME CHAR(15)
+);
+
+insert into SDEPT ( DEPTNO , DEPTNAME) value ('10','Development');
+insert into SDEPT( DEPTNO,DEPTNAME) value ('2','Training');
+select * from SDEPT;
+
+insert into SEMP( EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+value('0001','SUNIL',6000,'10',null),
+('0002','HIREN',8000,'20',null),
+('0003','ALI',8000,'20','0001'),
+('0004','GEORGE','6000',null,'0002');
+
+select * from SEMP;
+
+create table Supplier
+(Supplier char(12),
+Sname char(15),
+Status char(10),
+Cty CHar(12));
+
+insert into Supplier(Supplier,Sname,Status,Cty)
+value('Ram','Ram Babu','Done','Mumbai'),
+('Vam','Vam VaVu','Done','Delhi'),
+('Aru','Arkesh babu','Not Done','Goa'),
+('Paras','Paras Shot','Done','Mumbai');
+
+create table Parts(
+Parts char(14),
+Pname char(15),
+Color char(10),
+Weight float,
+City char(12));
+
+select * from Parts;
+AlTER Table Parts Drop  City;
+ALTER Table Parts ADD City char(12);
+
+insert into Parts(Parts,Pname,Color,Weight,City)
+value('Bike','Engine','Black',12,'Mumbai'),
+('Car','Body','White',40,'Delhi'),
+('JCB','Bucket','Yellow',20,'Goa'),
+('Dumper','Tank','Yellow',20,'Delhi');
+
+
+create table J(
+J char(14),
+Jname char(15),
+City char(12));
+
+insert into J(J,Jname,City)
+value('Building','JC CON','Khopoli'),
+('Hotel','JSW','Pen'),
+('Railway','Tata','Mumbai');
+
+select * from SPJ;
+
+create table SPJ(
+Supplier char(14),
+Parts char(15),
+J char(12), 
+Qty Float));
+
+insert into SPJ(Supplier,Parts,J,Qty)
+value('S1','P1','J1',10),
+('S2','P2','P3',20),
+('S3','P3','J3',30);
+
+select * from Supplier;
+select Supplier , Sname from Supplier;
+select Pname , Color from Parts where Color='Black';
+select Supplier from Supplier where Cty="Mumbai";
+select Supplier from Supplier where Cty="Mumbai" or Cty='goa';
+select Parts from Parts where Weight between 11 and 21;
+select Parts from Parts where Weight not between 11 and 21;
+select Parts from Parts where Weight>=20 order by Weight asc;
+select Weight*12 as "Weight in KG", Weight*2 as "Weight in MG" from Parts;
