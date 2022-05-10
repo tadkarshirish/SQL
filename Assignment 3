@@ -1,0 +1,24 @@
+select Upper(substring(sname,1,1))+lower(substring(sname,2,12))  from Supplier;
+
+
+select Upper(sname) from Supplier;
+
+select lower(sname) from Supplier;
+
+
+LPAD(string, length, lpad_string)
+
+select LPAD(sname,20,' ') from Supplier;     Padding
+
+select replace(sname,'am','uu') from Supplier;    Replace
+
+select *,length(sname) as length  from supplier;  length of string with other words
+
+
+
+select Dayname(CURRENT_DATE);   to get the dayname
+
+select dayname('1992-02-21');      gives dayname from the date
+select CURRENT_DATE;
+ SELECT CURRENT_TIMESTAMP;
+SELECT CURRENT_DATE()
