@@ -1,0 +1,45 @@
+#1. Display the minimum Status in the Supplier table. 
+	select min(sstatus) from supplier;
+#2. Display the maximum Weight in the Parts table. 
+	select max(pweight) from parts;
+#3. Display the average Weight of the Parts. 
+	select avg(pweight) from parts;
+#4. Display the total Quantity sold for part ‘P1’. 
+	select sum(qty) from SPJ
+    where pid = '1';
+#5. Display the total Quantity sold for each part. 
+    select pid,sum(qty) from spj
+    group by pid;
+#6. Display the average Quantity sold for each part. 
+    select pid,sum(qty)/count(pid) from spj
+    group by pid;
+    
+#7. Display the maximum Quantity sold for each part, provided the maximum Quantity 
+    #is greater than 800. 
+    select pid,max(qty) from spj
+    where qty>=300
+    group by pid;
+ 
+#8. Display the Status and the count of Suppliers with that Status. 
+	select sstatus,count(sstatus) from supplier
+    group by sstatus;
+#9. Display the count of Projects going on in different cities. 
+	select  distinct jcity,count(jid) from projects
+	group by jcity;
+#10. What is the difference between COUNT(Status) and COUNT(*) ? 
+	select count(SStatus)-count(*) from supplier;
+#11. Display the Status and the Count of Suppliers with that Status in the following format 
+#as shown below:- 
+	
+#Status   Count
+ ------  -------
+#Ten 		1 
+#Twenty 	2 
+#Thirty 	3
+
+	select SStatus, 
+	case
+	when SStatus=10 then 'Ten'
+	when SStatus=20 then 'Twenty'
+	when SStatus=30 then 'Thirty'
+	end "SStatus" from supplier;
