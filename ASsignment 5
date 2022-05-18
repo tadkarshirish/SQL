@@ -1,0 +1,59 @@
+# 1 Display the Supplier name and the Quantity sold
+	select sname,qty from supplier,spj
+	where supplier.sid=spj.Sid;
+
+
+# 2 Display the Part name and Quantity sold. 
+	select pname,sum(qty) from parts,spj
+	where spj.pid=parts.pid
+	group by pname;
+
+
+
+# 3 Display the Project name and Quantity sold.
+	select jname,sum(qty) from projects,spj
+	where spj.jid=projects.jid
+	group by jname;
+
+
+# 4 Display the Supplier name, Part name, Project name and Quantity sold
+	select jname,sum(qty) from projects,spj,supplier
+	where supplier.sid=spj.sid and parts.pid=spj.pid and projects.jid=spj.jid
+	group by sname,pname,jname;
+#Not SOLVED
+
+# 5 Display the Part name that is ‘Red’ is color, and the Quantity sold
+	select pname,pcolor,sum(qty) from parts,spj
+	where parts.pid=spj.pid and pcolor='yellow'
+	group by pname;
+
+# 6 Display all the Quantity sold by Suppliers with the Status = 20.
+	select supplier.sname,sum(qty) from supplier,spj
+	where spj.sid=supplier.sid and sstatus=200
+	group by supplier.sname;
+
+
+# 7 Display all the Parts and Quantity with a Weight > 14
+	select pname,sum(qty) from parts,spj
+	where spj.pid=parts.pid and pWeight>70
+	group by pname;
+
+
+# 8 Display all the Project names and City, which has bought more than 500 Parts
+    select pname,pcity,sum(qty) from projects,parts,spj
+    where spj.pid=parts.pid and qty>=200
+    group by pname;
+
+
+# 9 Display all the Part names and Quantity sold that have a Weight less than 15
+	select pname,sum(qty) from parts,spj
+	where parts.pid=spj.pid and pweight<70
+	group by pname;
+
+
+# 10 Display all the Employee names and the name of their Managers
+	select 
+
+
+
+
